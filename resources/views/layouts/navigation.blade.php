@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
+<nav class="navbar navbar-expand-md navbar-light bg-blue sticky-top">
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
@@ -14,7 +14,7 @@
             <ul class="navbar-nav me-auto">
                 <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{-- {{ __('Dashboard') }} --}}
-                    PPB Insurance Planner
+                    <span class="text-blue">PPB Insurance Planner</span>
                 </x-nav-link>
             </ul>
 
@@ -25,7 +25,7 @@
                 @auth
 
 
-                    <div class="text-secondary pr-3">
+                    <div class="text-blue pr-3">
                         {{ Auth::user()->name }}
 
                     </div>
