@@ -129,6 +129,7 @@ td{
     border-top-left-radius: 0.5rem;
     background-image: radial-gradient(#8EC26D, #298535);
     background-image: radial-gradient(#8EC26D, #298535);
+    height: 30px;
   }
   
   .image-slot {
