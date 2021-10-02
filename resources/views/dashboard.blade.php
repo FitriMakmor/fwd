@@ -13,6 +13,6 @@
                 proven by previous insurees.
             </h4>
         </div>
-        <a href="{{ route('results') }}" class="btn btn-success start-button d-flex justify-content-center align-items-center">Get Started</a>
+        <a href="{{ route('section1') }}" class="btn btn-success start-button d-flex justify-content-center align-items-center">Get Started</a>
     </div>
 </x-app-layout>

@@ -14,9 +14,11 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/nouislider.min.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased bg-light">
