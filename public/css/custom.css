@@ -30,6 +30,10 @@ td {
   background-image: radial-gradient(#e4ae7b, #e49a2a);
 }
 
+.bg-orange-fr {
+  background-color: #e49a2a;
+}
+
 .header-orange {
   background-image: radial-gradient(#e4ae7b, #e49a2a);
   color: white;
@@ -243,7 +247,80 @@ img {
   background-image: radial-gradient(#ebe9ce, #e8e9a1);
 }
 
-.btn-gender:checked+label {
-  background-image: radial-gradient(#abd2eb, #88cee9);
+.btn-check:checked+.btn-secondary {
+  transition-duration: 300ms;
+  /* box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 15%) !important; */
+  /* border: 1px solid #bdbdbd88; */
+  background-image: radial-gradient(#6dd358, #0fc218);
   color: black;
 }
+
+/* Hiding the checkbox, but allowing it to be focused */
+
+.badgebox {
+  opacity: 0;
+}
+
+/* .badge{
+} */
+
+.badgebox+.badge {
+  background-image: radial-gradient(#e06e6e, #853939);
+  /* Move the check mark away when unchecked */
+  text-indent: -999999px;
+  /* Makes the badge's width stay the same checked and unchecked */
+  width: 42px;
+}
+
+.badgebox:focus+.badge {
+  /* Set something to make the badge looks focused */
+  /* Adding a light border */
+  box-shadow: inset 0px 0px 5px;
+  /* Taking the difference out of the padding */
+}
+
+.badgebox:checked+.badge {
+  background-image: radial-gradient(#8EC26D, #298535);
+  /* Move the check mark back when checked */
+  /* text-indent: 0; */
+}
+
+/* Range sliders */
+
+.filter-box {
+  background-image: linear-gradient(#b6e996, #43aa51);
+  /* background-image: linear-gradient(#b6dcee, #93b7cf); */
+  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 15%) !important;
+  border: 1px solid #bdbdbd88;
+  min-width: 400px;
+}
+
+.range-box {
+  background-image: linear-gradient(#3e963e, #185c0f);
+  /* background-image: linear-gradient(#54bd54, #298d31); */
+  height: 37px;
+}
+
+.range-value {
+  background-image: linear-gradient(#8EC26D, #298535);
+  color: white;
+  width: 260px;
+  height: 100%;
+}
+
+.noUi-handle {
+  background-image: linear-gradient(#135e13, #093503) !important;
+  border-color: rgb(124, 218, 124) !important;
+}
+
+.noUi-connects {
+  background-image: linear-gradient(#7dc7dd, #29798d);
+}
+
+/* .noUi-tooltip {
+  display: none;
+}
+
+.noUi-active .noUi-tooltip {
+  display: block;
+} */

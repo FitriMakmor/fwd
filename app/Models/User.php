@@ -21,6 +21,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+        'birthdate',
+        'is_citizen',
+        'is_married',
+        'prefer_flexible',
+        'income_range',
+        'hasDisease1',
+        'hasDisease2',
+        'hasDisease3',
+        'hasDisease4',
+        'hasDisease5',
+        'admittance_freq',
+        'travel_freq',
     ];
 
     /**
