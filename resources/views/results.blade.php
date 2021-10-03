@@ -5,6 +5,24 @@
             Our Suggested Insurance Plans
         </h2>
     </x-slot>
+    @if ($message = Session::get('success'))
+        <div class='alert alert-success collapse show' id="alertCollapse">
+            <div class="row">
+                <div class="col-10">
+                    <p>{{ $message }}</p>
+                </div>
+                <div class="col-2 d-flex flex-row justify-content-center">
+                    <button class="btn btn-primary collapse-button align-self-center" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#alertCollapse" aria-expanded="true"
+                        aria-controls="alertCollapse">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
 
     <div class="card my-4">
         <div class="card-body d-flex justify-content-center">
@@ -20,7 +38,7 @@
         <thead class="">
             {{-- <thead class="header-orange"> --}}
             <tr>
-                <th scope="col"
+                <th scope=" col"
             class="border-none">
             </th>
             <th scope="col" class="col-orange border-none border-right">Plan One</th>
@@ -104,6 +122,12 @@
                 <td>{{ $recommended_plans[1]->iee }}</td>
                 <td>{{ $recommended_plans[2]->iee }}</td>
             </tr>
+            <tr>
+                <th scope="row" class="scope">Subscription</th>
+                <td class="text-center"><a href="{{ route('subscribe', $recommended_plans[0]->id) }}" class="btn btn-success">Subscribe</a></td>
+                <td class="text-center"><a href="{{ route('subscribe', $recommended_plans[1]->id) }}" class="btn btn-success">Subscribe</a></td>
+                <td class="text-center"><a href="{{ route('subscribe', $recommended_plans[2]->id) }}" class="btn btn-success">Subscribe</a></td>
+            </tr>
         </tbody>
     </table>
 
@@ -113,6 +137,7 @@
             <li data-bs-target="#suggestedCandidatesIndicators" data-bs-slide-to="1" class="bg-blue"></li>
             <li data-bs-target="#suggestedCandidatesIndicators" data-bs-slide-to="2" class="bg-blue"></li>
             <li data-bs-target="#suggestedCandidatesIndicators" data-bs-slide-to="3" class="bg-blue"></li>
+            <li data-bs-target="#suggestedCandidatesIndicators" data-bs-slide-to="4" class="bg-blue"></li>
         </ol>
         <div class="carousel-inner mt-5">
             <div class="carousel-item active">
@@ -141,6 +166,12 @@
                     $plans[3]])
                 </div>
             </div>
+            <div class="carousel-item">
+                <div class="row d-flex justify-content-center">
+                    @include('results_carousel', ['chunk_plans' =>
+                    $plans[4]])
+                </div>
+            </div>
         </div>
         <a class="carousel-control-prev" href="#suggestedCandidatesIndicators" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon text-orange" aria-hidden="true"></span>
@@ -156,15 +187,15 @@
         <thead>
             <tr>
                 <th scope="col">Rank #</th>
-                <th scope="col">Plan ID</th>
+                {{-- <th scope="col">Plan ID</th> --}}
                 <th scope="col">Name</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($recommended_plans as $plan)
                 <tr>
-                    <th scope="row">{{ $loop->index+1 }}</th>
-                    <td>{{ $plan->id }}</td>
+                    <th scope="row">{{ $loop->index + 1 }}</th>
+                    {{-- <td>{{ $plan->id }}</td> --}}
                     <td>{{ $plan->name }}</td>
                 </tr>
             @endforeach

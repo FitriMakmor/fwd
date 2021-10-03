@@ -2,13 +2,15 @@
     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
         <div class="jobseeker-single">
             <div class="d-flex justify-content-center">
+                @if ($plan['tier']==1)
+                <div class="image-plat"></div>
+                @elseif ($plan['tier']==2)
+                <div class="image-gold"></div>
+                @elseif ($plan['tier']==3)
+                <div class="image-silver"></div>
+                @else
                 <div class="image-container"></div>
-                {{-- <a href="{{ route('jobseeker-profile.show', $jobseeker->id) }}" --}}
-                {{-- <a href="" class="image-container d-flex flex-row justify-content-center align-items-center pt-3">
-                    <div class="image-slot border mx-auto">
-                        {
-                    </div>
-                </a> --}}
+                @endif
             </div>
             <div class="name-container text-center">
                 <a href="{{ route('subscribe', $plan['id']) }}">

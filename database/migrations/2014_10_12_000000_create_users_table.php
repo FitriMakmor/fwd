@@ -28,8 +28,8 @@ class CreateUsersTable extends Migration
             $table->boolean('hasDisease3')->nullable();
             $table->boolean('hasDisease4')->nullable();
             $table->boolean('hasDisease5')->nullable();
-            $table->enum('admittance_freq', ['None', 'Once or Twice', 'Three to Five Times', 'More than Five Times'])->nullable();
-            $table->enum('travel_freq', ['None', 'Once or Twice', 'Three to Five Times', 'More than Five Times'])->nullable();
+            $table->enum('admittance_freq', ['Not Once', 'Once or Twice', 'Three to Five Times', 'More than Five Times'])->nullable();
+            $table->enum('travel_freq', ['Not Once', 'Once or Twice', 'Three to Five Times', 'More than Five Times'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

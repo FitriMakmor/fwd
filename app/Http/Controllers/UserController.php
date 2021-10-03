@@ -182,7 +182,7 @@ class UserController extends Controller
             // Handle Exeption.
         })->wait();
 
-        return redirect()->route('results');
+        return redirect()->route('results')->with('success', 'Plan subscribed successfully.');
     }
 
     /**
