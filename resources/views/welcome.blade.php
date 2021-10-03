@@ -45,7 +45,7 @@
 
     <div class="container-fluid my-5 px-5 d-flex justify-content-center" style="padding-top: 196px;">
         <div class="row d-flex justify-content-center px-4">
-            <p class="text-blue" style="font-size: 72px;">PBB Insurance Planner</p>
+            <p class="text-blue" style="font-size: 72px;">PPB Insurance Planner</p>
         </div>
     </div>
     <div class="d-flex justify-content-center px-4">

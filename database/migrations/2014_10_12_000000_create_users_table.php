@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('birthdate')->nullable();
             $table->boolean('is_married')->nullable();
             $table->boolean('prefer_flexible')->nullable();
-            $table->enum('income_range', ['Less than RM1,500', 'RM1,500 - RM3,000', 'RM3,000 - RM6,000', 'RM6,000 - RM 10,000', 'RM10,000 - RM15,000', 'More than RM15,000'])->nullable();
+            $table->enum('income_range', ['Less than RM1,500', 'RM1,500 - RM3,000', 'RM3,000 - RM6,000', 'RM6,000 - RM10,000', 'RM10,000 - RM15,000', 'More than RM15,000'])->nullable();
             $table->boolean('hasDisease1')->nullable();
             $table->boolean('hasDisease2')->nullable();
             $table->boolean('hasDisease3')->nullable();
