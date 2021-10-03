@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Amranidev\Laracombee\Laracombee;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -90,6 +91,13 @@ class UserController extends Controller
 
         $user->update($request->all());
 
+        $updateUser = (new Laracombee)->updateUser($user);
+
+        (new Laracombee)->send($updateUser)->then(function () {
+        })->otherWise(function ($error) {
+            dd($error);
+        })->wait();
+
         return redirect()->route('section2');
     }
 
@@ -102,6 +110,13 @@ class UserController extends Controller
         ]);
 
         $user->update($request->all());
+        
+        $updateUser = (new Laracombee)->updateUser($user);
+        
+        (new Laracombee)->send($updateUser)->then(function () {
+        })->otherWise(function ($error) {
+            dd($error);
+        })->wait();
 
         return redirect()->route('section3');
     }
@@ -115,6 +130,13 @@ class UserController extends Controller
         ]);
 
         $user->update($request->all());
+
+        $updateUser = (new Laracombee)->updateUser($user);
+        
+        (new Laracombee)->send($updateUser)->then(function () {
+        })->otherWise(function ($error) {
+            dd($error);
+        })->wait();
 
         return redirect()->route('section4');
     }
@@ -131,6 +153,13 @@ class UserController extends Controller
 
         $user->update($request->all());
 
+        $updateUser = (new Laracombee)->updateUser($user);
+        
+        (new Laracombee)->send($updateUser)->then(function () {
+        })->otherWise(function ($error) {
+            dd($error);
+        })->wait();
+        
         return redirect()->route('results');
     }
 

@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public static $laracombee = ['gender' => 'string', 'birthdate' => 'timestamp', 'is_citizen' => 'boolean', 'is_married' => 'boolean', 'prefer_flexible' => 'boolean', 'income_range' => 'string', 'hasDisease1' => 'boolean', 'hasDisease2' => 'boolean', 'hasDisease3' => 'boolean', 'hasDisease4' => 'boolean', 'hasDisease5' => 'boolean', 'admittance_freq' => 'string', 'travel_freq' => 'string'];
+
     /**
      * The attributes that are mass assignable.
      *
