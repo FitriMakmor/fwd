@@ -11,7 +11,7 @@
                 </a> --}}
             </div>
             <div class="name-container text-center">
-                <a href="">
+                <a href="{{ route('subscribe', $plan['id']) }}">
                     {{-- <a href="{{ route('jobseeker-profile.show', $jobseeker->id) }}"> --}}
                     {{-- <h5 class="text-white mb-0">{{ $jobseeker->full_name }}</h5> --}}
                     <h5 class="text-white mb-0">{{ $plan['name']}}</h5>

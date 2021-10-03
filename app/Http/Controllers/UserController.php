@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Amranidev\Laracombee\Laracombee;
+use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -110,9 +111,9 @@ class UserController extends Controller
         ]);
 
         $user->update($request->all());
-        
+
         $updateUser = (new Laracombee)->updateUser($user);
-        
+
         (new Laracombee)->send($updateUser)->then(function () {
         })->otherWise(function ($error) {
             dd($error);
@@ -132,7 +133,7 @@ class UserController extends Controller
         $user->update($request->all());
 
         $updateUser = (new Laracombee)->updateUser($user);
-        
+
         (new Laracombee)->send($updateUser)->then(function () {
         })->otherWise(function ($error) {
             dd($error);
@@ -154,12 +155,33 @@ class UserController extends Controller
         $user->update($request->all());
 
         $updateUser = (new Laracombee)->updateUser($user);
-        
+
         (new Laracombee)->send($updateUser)->then(function () {
         })->otherWise(function ($error) {
             dd($error);
         })->wait();
-        
+
+        return redirect()->route('results');
+    }
+
+    public function subscribe(Plan $plan)
+    {
+        $user_id = auth()->id();
+
+        $addDetailView = (new Laracombee)->addDetailView($user_id, $plan->id);
+        (new Laracombee)->send($addDetailView)->then(function () {
+            // Success.
+        })->otherWise(function ($error) {
+            // Handle Exeption.
+        })->wait();
+
+        $addPurchase = (new Laracombee)->addPurchase($user_id, $plan->id);
+        (new Laracombee)->send($addPurchase)->then(function () {
+            // Success.
+        })->otherWise(function ($error) {
+            // Handle Exeption.
+        })->wait();
+
         return redirect()->route('results');
     }
 

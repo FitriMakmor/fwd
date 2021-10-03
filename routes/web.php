@@ -47,4 +47,6 @@ Route::put("/section2-update/{user}", [UserController::class, 'updateS2'])->name
 Route::put("/section3-update/{user}", [UserController::class, 'updateS3'])->name('update-s3')->middleware(['auth']);
 Route::put("/section4-update/{user}", [UserController::class, 'updateS4'])->name('update-s4')->middleware(['auth']);
 
+Route::get("/subscribe/{plan}", [UserController::class, 'subscribe'])->name('subscribe')->middleware(['auth']);
+
 require __DIR__.'/auth.php';

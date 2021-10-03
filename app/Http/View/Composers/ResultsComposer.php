@@ -2,6 +2,7 @@
 
 namespace App\Http\View\Composers;
 
+use Amranidev\Laracombee\Laracombee;
 use App\Models\Plan;
 use Illuminate\View\View;
 
@@ -15,6 +16,7 @@ class ResultsComposer
     protected $all_plans;
     protected $plans;
     protected $recommended_plans;
+    protected $recombee_success;
 
 
     /**
@@ -29,23 +31,16 @@ class ResultsComposer
         // Dependencies are automatically resolved by the service container...
         $all_plans = Plan::all();
         $this->plans = array_chunk($all_plans->toArray(), 3);
-        // $user = User::find($user_id);
-        // $employer = $user->userable;
 
-        // $selectedId = $employer->viewed_candidate_id;
+        $this->recombee_success = true;
 
-        // if ($selectedId) {
-        //     $ttl = 86400; // 1 Day
-        //     $this->recommended_candidates = Cache::remember($selectedId, $ttl, function () use ($selectedId) {
-        //         $recommended_candidates = Jobseeker::where("is_hidden", 0)->with(['profile_photo', 'contact_info.state', 'contact_info.city', 'skills', 'job_experiences', 'seeking_employment_types.employment_type', 'seeking_job_locations.state', 'seeking_job_locations.city', 'education_experiences.education_level'])->get();
-        //         $productSimilarity = new ProductSimilarity($recommended_candidates);
-        //         $similarityMatrix  = $productSimilarity->calculateSimilarityMatrix();
-        //         $recommended_candidates = $productSimilarity->getProductsSortedBySimilarity($selectedId, $similarityMatrix);
-        //         return array_chunk($recommended_candidates, 3);
-        //     });
-        // }
+        $recombee_recommendations = (new Laracombee)->recommendItemsToUser($user_id, 10)->otherWise(function ($error) {
+            $this->recombee_success = false;
+        })->wait();
 
-        // return view('welcome', compact('selectedId', 'selectedProduct', 'products'));
+        if ($this->recombee_success){
+            $this->recommended_plans = Plan::find(array_values($recombee_recommendations["recomms"]));
+        }
     }
 
     /**
@@ -57,5 +52,6 @@ class ResultsComposer
     public function compose(View $view)
     {
         $view->with('plans', $this->plans);
+        $view->with('recommended_plans', $this->recommended_plans);
     }
 }

@@ -16,11 +16,11 @@
             class="btn btn-warning start-button d-flex justify-content-center align-items-center">Retake The Test</a> --}}
     </div>
 
-    <table class="table">
+    <table class="table comp-table">
         <thead class="">
             {{-- <thead class="header-orange"> --}}
             <tr>
-                <th scope=" col"
+                <th scope="col"
             class="border-none">
             </th>
             <th scope="col" class="col-orange border-none border-right">Plan One</th>
@@ -34,75 +34,75 @@
             </tr>
             <tr>
                 <th scope="row" class="scope">Plan Name</th>
-                <td>PPO Platinum</td>
-                <td>PPO Gold</td>
-                <td>PPO Silver</td>
+                <td>{{ $recommended_plans[0]->name }}</td>
+                <td>{{ $recommended_plans[1]->name }}</td>
+                <td>{{ $recommended_plans[2]->name }}</td>
             </tr>
             <tr>
                 <th scope="row" class="scope">Medical Insurance Category</th>
-                <td>Preferred Provider Organization</td>
-                <td>Preferred Provider Organization</td>
-                <td>Preferred Provider Organization</td>
+                <td>{{ $recommended_plans[0]->type }}</td>
+                <td>{{ $recommended_plans[1]->type }}</td>
+                <td>{{ $recommended_plans[2]->type }}</td>
             </tr>
             <tr>
                 <th class="header-blue" colspan="4">Benefits</th>
             </tr>
             <tr>
                 <th scope="row" class="scope">Annual Premium</th>
-                <td>RM1740</td>
-                <td>RM1382</td>
-                <td>RM1097</td>
+                <td>{{ $recommended_plans[0]->annual_premium }}</td>
+                <td>{{ $recommended_plans[1]->annual_premium }}</td>
+                <td>{{ $recommended_plans[2]->annual_premium }}</td>
             </tr>
             <tr>
                 <th scope="row" class="scope">Overall Annual Limit</th>
-                <td>RM500,000</td>
-                <td>RM200,000</td>
-                <td>RM100,00</td>
+                <td>{{ $recommended_plans[0]->overall_annual_limit }}</td>
+                <td>{{ $recommended_plans[1]->overall_annual_limit }}</td>
+                <td>{{ $recommended_plans[2]->overall_annual_limit }}</td>
             </tr>
             <tr>
                 <th class="header-blue" colspan="4">In-Patient & Daycare</th>
             </tr>
             <tr>
                 <th scope="row" class="scope">Room & Board</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->room_and_board }}</td>
+                <td>{{ $recommended_plans[1]->room_and_board }}</td>
+                <td>{{ $recommended_plans[2]->room_and_board }}</td>
             </tr>
             <tr>
                 <th scope="row" class="scope">Room Category</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->room_category }}</td>
+                <td>{{ $recommended_plans[1]->room_category }}</td>
+                <td>{{ $recommended_plans[2]->room_category }}</td>
             </tr>
             <tr>
                 <th scope="row" class="scope">Total Number of Days</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->hospital_days }}</td>
+                <td>{{ $recommended_plans[1]->hospital_days }}</td>
+                <td>{{ $recommended_plans[2]->hospital_days }}</td>
             </tr>
             <tr>
                 <th class="header-blue" colspan="4">Out-patient Treatment</th>
             </tr>
             <tr>
                 <th scope="row" class="scope">Consultation & Diagnostic Procedures</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->cnd }}</td>
+                <td>{{ $recommended_plans[1]->cnd }}</td>
+                <td>{{ $recommended_plans[2]->cnd }}</td>
             </tr>
             <tr>
                 <th class="header-blue" colspan="4">Special Benefit (additional limit on top of Overall Annual)</th>
             </tr>
             <tr>
                 <th scope="row" class="scope">Accidental Death</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->accidental_death }}</td>
+                <td>{{ $recommended_plans[1]->accidental_death }}</td>
+                <td>{{ $recommended_plans[2]->accidental_death }}</td>
             </tr>
             <tr>
                 <th scope="row" class="scope">International Emergency Evacuation</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>{{ $recommended_plans[0]->iee }}</td>
+                <td>{{ $recommended_plans[1]->iee }}</td>
+                <td>{{ $recommended_plans[2]->iee }}</td>
             </tr>
         </tbody>
     </table>
@@ -151,5 +151,24 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Rank #</th>
+                <th scope="col">Plan ID</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($recommended_plans as $plan)
+                <tr>
+                    <th scope="row">{{ $loop->index+1 }}</th>
+                    <td>{{ $plan->id }}</td>
+                    <td>{{ $plan->name }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 </x-app-layout>
