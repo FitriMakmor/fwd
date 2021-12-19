@@ -1,3 +1,5 @@
+## The FWD Insurance Planner is a mini project I had worked on alongside an old schoolmate of mine as a test drive as we participated in a hackathon organized by the FWD themselves. It's a laravel web app designed within one day and works as a way to recommend the best insurance plans for new users based on user-based and item-based recommender algorithms. I won't be working on this project further, but any form of tips and advice is greatly appreciated nonetheless! 😄
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
