@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'database' => 'fwd-hack-dev',
-    'token'    => 'QJWOc6yiFo3s4aS3XGEY3uSvvNlrxAmAd9C870bgTZzmrmKRBo90Yz9lICknY8S9',
+    'database' => 'nice try bud.',
+    'token'    => 'nice try bud.',
 
     /*
     |--------------------------------------------------------------------------
